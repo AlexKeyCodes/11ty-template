@@ -27,6 +27,7 @@ This project is a customizable starter template for creating static websites usi
 
 ## Project Structure
 
+```
 my-11ty-template/
 ├── .eleventy.js # Eleventy configuration
 ├── .gitignore # Files and directories to ignore in version control
@@ -51,6 +52,7 @@ my-11ty-template/
 │ ├── pages/ # Static pages (e.g., About, Contact)
 │ └── posts/ # Blog posts or other content
 └── dist/ # Output directory (auto-generated)
+```
 
 ## Getting Started
 
@@ -63,44 +65,57 @@ Ensure you have the following installed:
 
 ### Installation
 
-Installation
-Clone the repository:
+### Clone the repository:
 
-bash
-Copy code
+```
 git clone https://github.com/your-username/11ty-template.git
 cd 11ty-template
-Install dependencies:
+```
 
-bash
-Copy code
+### Install dependencies:
+
+```
 npm install
-Development
+```
+
+### Development
+
 To start the development server with live reloading:
 
-bash
-Copy code
+```
 npm run serve
+```
+
 Visit http://localhost:8080 to view your site. Changes to the files in src/ will automatically rebuild and reload the site.
 
-Available Scripts
+### Available Scripts
+
 npm run build: Build the project for production, generating the static files in the dist/ directory.
 npm run serve: Start a local development server with live reloading.
 npm run watch: Watch for changes and rebuild the CSS and Eleventy templates.
 npm run build:css: Compile the SASS files into CSS using PostCSS and TailwindCSS.
 npm run clean: Remove the dist/ directory to ensure a fresh build (add this script as needed).
-Customization
-TailwindCSS
+
+### Customization
+
+### TailwindCSS
+
 Modify tailwind.config.js to customize TailwindCSS settings, such as colors, spacing, and fonts.
 Add or update styles in src/assets/sass/styles.scss.
-Nunjucks Templates
+
+### Nunjucks Templates
+
 Add new layouts in src/\_includes/layouts/.
 Create reusable components in src/\_includes/components/.
 Store global data in src/\_data/.
-Eleventy Plugins
+
+### Eleventy Plugins
+
 Configure navigation in the eleventyConfig.addPlugin(eleventyNavigationPlugin) block in .eleventy.js.
 Update sitemap settings in the eleventyConfig.addPlugin(sitemap) block in .eleventy.js.
-Deployment
+
+### Deployment
+
 This project is configured for easy deployment to Netlify. You can customize the deployment settings in netlify.toml.
 
 Deploy to Netlify:
@@ -112,13 +127,7 @@ Build Locally for Production:
 
 To generate a production-ready build:
 
-bash
-Copy code
+```
 npm run build
 The output will be in the dist/ directory, ready to be served.
-
-Contributing
-If you'd like to contribute to this project, please fork the repository, make your changes, and submit a pull request. We welcome contributions that improve the project.
-
-License
-This project is licensed under the MIT License. You are free to use, modify, and distribute this template as you see fit.
+```
