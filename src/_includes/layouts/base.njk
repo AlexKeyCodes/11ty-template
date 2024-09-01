@@ -1,11 +1,59 @@
 <!DOCTYPE html>
 <html lang="en">
   <head>
+    <!-- Standard meta tags -->
     <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>{{ title }}</title>
+    <meta name="description" content="{{ description }}">
+    <meta name="keywords" content="">
+    <link rel="canonical" href="{{ client.domain }}{{ page.url }}">
+
+    <!-- Social Media Display -->
+    <meta property="og:title" content="{{ title }}"/>
+    <meta property="og:description" content="{{ description }}"/>
+    <meta property="og:type" content="website"/>
+    <meta property="og:url" content="{{ client.domain }}{{ page.url }}"/>
+    <meta property="og:image" content="/assets/images/og-image.webp"/>
+    <meta property="og:image:secure_url" content="/assets/images/og-image.webp"/>
+
+    <!-- Favicons -->
+    <link rel="apple-touch-icon" sizes="180x180" href="/assets/favicons/apple-touch-icon.png">
+    <link rel="icon" type="image/png" sizes="32x32" href="/assets/favicons/favicon-32x32.png?v1">
+    <link rel="icon" type="image/png" sizes="16x16" href="/assets/favicons/favicon-16x16.png">
+    <link rel="manifest" href="/assets/favicons/site.webmanifest">
+    <meta name="msapplication-TileColor" content="#da532c">
+    <meta name="theme-color" content="#ffffff">
+
+    <!-- Sitewide Stylesheets and Scripts -->
     <link rel="stylesheet" href="/assets/css/styles.css">
+
+    <!-- Google Font -->
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;700&display=swap">
+
+    {% block head %}{% endblock %}
+
+    <title>{{ title }}</title>
+
+    <script type="application/ld+json">
+      {
+        "@context": "https://schema.org",
+        "@type": "Organization",
+        "name": "{{ client.name }}",
+        "url": "{{ client.domain }}",
+        "logo": "{{ client.domain }}/assets/images/logo.png",
+        "contactPoint": {
+          "@type": "ContactPoint",
+          "telephone": "{{ client.phone }}",
+          "contactType": "Customer Service"
+        }
+      }
+    </script>
+
+    <!-- ADD GOOGLE ANALYTICS -->
+
   </head>
+
   <body>
     {% include "components/header.njk" %}
     <main>
