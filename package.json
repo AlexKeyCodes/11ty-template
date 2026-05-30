@@ -5,7 +5,8 @@
   "scripts": {
     "build:css": "postcss src/assets/sass/styles.scss -o src/assets/css/styles.css",
     "build": "npm run build:css && eleventy",
-    "serve": "npm run build:css && eleventy --serve",
+    "serve": "npm-run-all --parallel watch:css serve:eleventy",
+    "serve:eleventy": "npx eleventy --serve",
     "watch:css": "postcss src/assets/sass/styles.scss -o src/assets/css/styles.css --watch",
     "watch": "npm-run-all --parallel watch:css serve"
   },
