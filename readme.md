@@ -1,6 +1,6 @@
 # 11ty Template Project
 
-This project is a customizable starter template for creating static websites using [11ty (Eleventy)](https://www.11ty.dev/), with integrations for [Nunjucks](https://mozilla.github.io/nunjucks/), [TailwindCSS](https://tailwindcss.com/), [SASS](https://sass-lang.com/), and JavaScript. The template also includes plugins for navigation, sitemap generation, and file minification. It's designed for rapid development and deployment on Netlify.
+This project is a customizable starter template for creating static websites using [11ty (Eleventy)](https://www.11ty.dev/), with integrations for [Nunjucks](https://mozilla.github.io/nunjucks/), [TailwindCSS](https://tailwindcss.com/), [SASS](https://sass-lang.com/), and JavaScript. The template also includes plugins for navigation, sitemap generation, and file minification. It's designed for rapid development and deployment to your own server via rsync over SSH.
 
 ## Table of Contents
 
@@ -31,7 +31,7 @@ This project is a customizable starter template for creating static websites usi
 my-11ty-template/
 ├── .eleventy.js # Eleventy configuration
 ├── .gitignore # Files and directories to ignore in version control
-├── netlify.toml # Netlify deployment configuration
+├── deploy.sh # rsync deployment script
 ├── package.json # Project dependencies and scripts
 ├── postcss.config.js # PostCSS configuration for TailwindCSS
 ├── tailwind.config.js # TailwindCSS configuration
@@ -121,17 +121,7 @@ Update sitemap settings in the eleventyConfig.addPlugin(sitemap) block in .eleve
 
 ### Deployment
 
-This project is configured for easy deployment to Netlify. You can customize the deployment settings in netlify.toml.
-
-#### Deploy to Netlify:
-
-Push your repository to a Git provider like GitHub.
-Connect your repository to Netlify.
-Netlify will automatically build and deploy your site on each push.
-
-#### Manual Deployment:
-
-A `deploy.sh` script is included for manual deployment to a server. Before using it:
+This project deploys to your own server using rsync over SSH via the included `deploy.sh` script. Before using it:
 
 1. Update the script with your server details:
 
