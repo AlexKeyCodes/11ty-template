@@ -17,9 +17,9 @@
   "description": "",
   "dependencies": {
     "@11ty/eleventy": "^2.0.1",
-    "@reservationgenie/google-reviews": "github:88-RG-websites/review_scraper#v1.0.0",
     "@11ty/eleventy-navigation": "^0.3.5",
     "@quasibit/eleventy-plugin-sitemap": "^2.2.0",
+    "@reservationgenie/google-reviews": "github:88-RG-websites/review_scraper#v1.0.1",
     "@sherby/eleventy-plugin-files-minifier": "^1.1.1",
     "autoprefixer": "^10.4.20",
     "npm-run-all": "^4.1.5",
