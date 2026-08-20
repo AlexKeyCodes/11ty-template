@@ -1,0 +1,41 @@
+{# Google reviews section — data comes from src/_data/reviews.js (null until
+   client.js has a `reviews` block and a cache/scrape has produced data).
+   Restyle freely per site: the only contract is the data shape
+   (reviews.summary.google.total/.average and reviews.items[]).
+   review.text contains real newlines — keep `whitespace-pre-line` (or
+   `white-space: pre-line`) on the text element.
+   NOTE: do NOT add schema.org Review/AggregateRating markup here — marking up
+   reviews sourced from Google violates Google's structured-data policy. #}
+{% if reviews and reviews.items.length %}
+  <section class="bg-white dark:bg-gray-900">
+    <div class="max-w-screen-xl px-4 py-8 mx-auto sm:py-16 lg:px-6">
+      <div class="max-w-screen-md mx-auto mb-8 text-center lg:mb-12">
+        <h2 class="mb-4 text-4xl tracking-tight font-extrabold text-gray-900 dark:text-white">What Our Guests Say</h2>
+        {% if reviews.summary.google.average %}
+          <p class="font-light text-gray-500 sm:text-xl dark:text-gray-400">
+            <span aria-hidden="true" class="text-amber-400">★</span>
+            {{ reviews.summary.google.average }} average from {{ reviews.summary.google.total }} Google reviews
+          </p>
+        {% endif %}
+      </div>
+      <div class="grid gap-6 md:grid-cols-2">
+        {% for review in reviews.items %}
+          <article class="p-6 bg-gray-50 rounded-lg dark:bg-gray-800">
+            <div class="flex items-center justify-between mb-3">
+              <span class="font-semibold text-gray-900 dark:text-white">{{ review.author }}</span>
+              {% if review.published_at %}
+                <time datetime="{{ review.published_at }}" class="text-sm text-gray-500 dark:text-gray-400">{{ review.published_at.slice(0, 10) }}</time>
+              {% endif %}
+            </div>
+            <p aria-label="{{ review.rating }} out of 5 stars" class="mb-3 text-amber-400">
+              {%- for i in range(0, review.rating) %}★{% endfor -%}
+            </p>
+            {% if review.text %}
+              <p class="font-light text-gray-500 dark:text-gray-400 whitespace-pre-line">{{ review.text }}</p>
+            {% endif %}
+          </article>
+        {% endfor %}
+      </div>
+    </div>
+  </section>
+{% endif %}

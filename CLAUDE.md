@@ -34,6 +34,7 @@ This is a **starter template for building static websites** (typically small bus
 **Data-driven content**
 - `src/_data/client.js` — per-site details (`name`, `address`, `phone`, `domain`). This is the file you edit first for a new project. Templates read it as `{{ client.* }}` (e.g. the base layout builds canonical URLs and schema from it).
 - `src/_data/global.js` — site-wide values available as `{{ global.* }}` (currently `currentYear`).
+- `src/_data/reviews.js` — build-time Google reviews via the private `@reservationgenie/google-reviews` package (github: dependency; laptops need repo access). Disabled until `client.js` gets a `reviews:` block (example is commented there). Data renders through `src/_includes/components/reviews.njk` — restyle per site; the data shape (`reviews.summary`, `reviews.items`) is the only contract. Full review history is cached in `reviews-cache.json` at the repo root (committed — **not** in `_data/`, where Eleventy would ingest it as a global; commit it when a build fetches new reviews). Production builds scrape incrementally; `npm run serve` and `REVIEWS_OFFLINE=1` builds serve the cache without network. A scrape failure never fails the build — it logs `[reviews] FAILED:` and renders last-good cached reviews. Do not add schema.org Review/AggregateRating markup for these reviews (against Google's structured-data policy).
 
 **Asset pipeline**
 - SASS compiles `src/assets/sass/styles.scss` → `src/assets/css/styles.css`.

@@ -20,6 +20,7 @@ This project is a customizable starter template for creating static websites usi
 - **TailwindCSS:** Utility-first CSS framework with SASS integration.
 - **SASS:** Extendable CSS with variables, nesting, and more.
 - **JavaScript:** Custom scripts to enhance functionality.
+- **Google reviews (optional):** Build-time reviews baked into the HTML for SEO via the private `@reservationgenie/google-reviews` package — enable by uncommenting the `reviews` block in `src/_data/client.js` (details in `CLAUDE.md`).
 - **11ty Plugins:**
   - **eleventy-navigation:** Simple, powerful navigation.
   - **eleventy-plugin-sitemap:** Generate a sitemap for SEO.
